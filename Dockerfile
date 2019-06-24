@@ -6,11 +6,9 @@ COPY . .
 
 RUN dotnet publish -r linux-musl-x64 -c Release -o ./deploy
 
-FROM alpine:latest
+FROM mcr.microsoft.com/dotnet/core/runtime-deps:3.0.0-preview6-alpine3.9
 
 COPY --from=build /app/deploy ./app
-
-RUN apk update && apk add libstdc++ && apk add libintl
 
 ENV ASPNETCORE_URLS http://*:5000
 
