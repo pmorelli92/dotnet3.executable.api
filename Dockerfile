@@ -8,15 +8,15 @@ RUN dotnet publish -r linux-musl-x64 -c Release -o ./deploy
 
 FROM alpine:latest
 
-COPY --from=build /app/deploy .
+COPY --from=build /app/deploy ./app
 
 RUN apk update && apk add libstdc++ && apk add libintl
 
 ENV ASPNETCORE_URLS http://*:5000
 
-ENTRYPOINT ["./DotNet3.Executable.Api"]
-
 EXPOSE 5000
 
-# docker build -t echoapi:local . (64.8 MB file size)
-# docker run -p 5000:5000 -t echoapi:local (0.12% CPU - 35 MB RAM)
+ENTRYPOINT ["./app/DotNet3.Executable.Api"]
+
+# docker build -t echoapi:local . (91 MB file size)
+# docker run -p 5000:5000 -t echoapi:local (0.08% CPU - 30 MB RAM)
