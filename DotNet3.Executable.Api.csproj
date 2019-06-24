@@ -4,8 +4,9 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <RootNamespace>DotNet3.Executable.Api</RootNamespace>
     <PublishTrimmed>true</PublishTrimmed>
-    <PublishReadyToRun>false</PublishReadyToRun>
+    <PublishReadyToRun>true</PublishReadyToRun>
     <PublishSingleFile>true</PublishSingleFile>
+    <CrossGenDuringPublish>false</CrossGenDuringPublish>
   </PropertyGroup>
 
 </Project>
