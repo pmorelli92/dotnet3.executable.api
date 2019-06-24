@@ -1,5 +1,4 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0.100-preview6-alpine3.9 AS build
-#FROM mcr.microsoft.com/dotnet/core/sdk:3.0.100-preview6-disco AS build
 
 WORKDIR /app
 
